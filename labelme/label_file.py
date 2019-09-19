@@ -3,7 +3,10 @@ import io
 import json
 import os.path as osp
 
+
 import PIL.Image
+from PIL import ImageDraw, ImageFont
+from pathlib import Path
 
 from labelme._version import __version__
 from labelme.logger import logger
@@ -30,11 +33,19 @@ class LabelFile(object):
 
     @staticmethod
     def load_image_file(filename):
+        base_dir, image_name = osp.split(filename)
+        text_file = f'{base_dir[:-5]}/text/{image_name[:-4]}.txt'
+
         try:
+            text = Path(text_file).read_text()
             image_pil = PIL.Image.open(filename)
         except IOError:
             logger.error('Failed opening image file: {}'.format(filename))
             return
+        
+        image_draw = ImageDraw.Draw(image_pil)
+        set_font = ImageFont.truetype("simhei.ttf", 60)
+        image_draw.text((0,0), text, font=set_font, fill=(0,0,0))
 
         # apply orientation to image according to exif
         image_pil = utils.apply_exif_orientation(image_pil)

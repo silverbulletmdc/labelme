@@ -1222,6 +1222,7 @@ class MainWindow(QtWidgets.QMainWindow):
             if self.imageData:
                 self.imagePath = filename
             self.labelFile = None
+        
         image = QtGui.QImage.fromData(self.imageData)
 
         if image.isNull():
