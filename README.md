@@ -30,7 +30,7 @@
     ```
 2. 执行以下指令安装并启动标注工具
     ```shell script
-    pip install git+https://github.com/silverbulletmdc/labelme/tree/ysj
+    pip install git+https://github.com/silverbulletmdc/labelme@ysj
     labelme ./image --nodata --autosave --flags ./flags.txt --output ./json
     ```
 3. 开始标注。
