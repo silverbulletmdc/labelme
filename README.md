@@ -31,12 +31,14 @@
 2. 执行以下指令安装并启动标注工具
     ```shell script
     pip install git+https://github.com/silverbulletmdc/labelme/tree/ysj
-    labelme --nodata --flags flags.txt
+    labelme ./image --nodata --autosave --flags ./flags.txt --output ./json
     ```
-3. 打开后，点击`Open Dir`，选择`image`文件夹。此时可以看到图片和对应的诗句。
-4. 点击File->Save Automatically开启自动保存。
-5. 点击File->Change Output Dir，更改至json文件夹。
-6. 开始标注。如果诗句和图像相关在右侧Flags框中的yes复选框上打勾，否则在no上打勾。不可同时选择，不可不选。
+3. 开始标注。
+如果诗句和图像相关在右侧Flags框中的yes复选框上打勾，否则在no上打勾。不可同时选择，不可不选。
+
+快捷键: A选择上一张图片，D选择下一张图片。
+
+标注完成后标注文件会保存到json文件夹中。
 
 
 Labelme is a graphical image annotation tool inspired by <http://labelme.csail.mit.edu>.  
