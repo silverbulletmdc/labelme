@@ -21,6 +21,24 @@
 
 ## Description
 
+1. cd到标注文件夹。该文件夹下至少包含以下文件：
+    ```text
+    image # 图片文件夹
+    text # 文本文件夹
+    json # 标注文件夹
+    flags.txt # 标签文件
+    ```
+2. 执行以下指令安装并启动标注工具
+    ```shell script
+    pip install git+https://github.com/silverbulletmdc/labelme/tree/ysj
+    labelme --nodata --flags flags.txt
+    ```
+3. 打开后，点击`Open Dir`，选择`image`文件夹。此时可以看到图片和对应的诗句。
+4. 点击File->Save Automatically开启自动保存。
+5. 点击File->Change Output Dir，更改至json文件夹。
+6. 开始标注。如果诗句和图像相关在右侧Flags框中的yes复选框上打勾，否则在no上打勾。不可同时选择，不可不选。
+
+
 Labelme is a graphical image annotation tool inspired by <http://labelme.csail.mit.edu>.  
 It is written in Python and uses Qt for its graphical interface.
 
